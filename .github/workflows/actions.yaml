@@ -1,10 +1,10 @@
-name: Python package
+name: CI/CD AWS
 
 on: [push]
 
 jobs:
-  build:
 
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -36,4 +36,19 @@ jobs:
           npm install nx
           npx nx test fizzbuzz
 
-
+  deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-python@v2
+        - uses: aws-actions/setup-sam@v1
+        - uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: eu-central-1
+        # zip-it-ship-it 
+        - run: |
+            ls -la
+            # zip lambda lambda_function.py test_lambda_function.py README.md
+            # aws lambda update-function-code --function-name FizzBuzz-Calculator-Mandzik --zip-file fileb://lambda.zip
