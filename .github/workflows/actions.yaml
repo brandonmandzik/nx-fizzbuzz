@@ -33,7 +33,7 @@ jobs:
           node-version: 16 
       - name: Run NX
         run: |
-          npm install -g nx
-          nx test fizzbuzz
+          npm install 
+          npm nx test fizzbuzz
 
 
