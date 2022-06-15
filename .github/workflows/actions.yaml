@@ -27,13 +27,12 @@ jobs:
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-      - name: Setting up Node runner
+      - name: Setting up Node Runner and NX Enviroment
         uses: actions/setup-node@v3
         with:
           node-version: 16 
-      - name: Run NX
+      - name: Running NX Test
         run: |
-          npm install
           npm install nx
           npx nx test fizzbuzz
 
