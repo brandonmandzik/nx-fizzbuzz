@@ -34,7 +34,7 @@ jobs:
       - name: Run NX
         run: |
           npm install
-          npm install --location=global nx
-          npm nx test fizzbuzz
+          npm install nx
+          npx nx test fizzbuzz
 
 
