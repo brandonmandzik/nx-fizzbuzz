@@ -33,7 +33,8 @@ jobs:
           node-version: 16 
       - name: Run NX
         run: |
-          npm install 
+          npm install
+          npm install --location=global nx
           npm nx test fizzbuzz
 
 
