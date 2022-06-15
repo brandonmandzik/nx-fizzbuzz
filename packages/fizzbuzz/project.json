@@ -5,11 +5,23 @@
   "targets": {
     "test": {
       "executor": "nx:run-commands",
-      "outputs": [],
       "options": {
         "command": "python3 -m pytest -v",
         "cwd": "packages/fizzbuzz/src"
       }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "zip lambda lambda_function.py test_lambda_function.py",
+          "aws lambda update-function-code --function-name FizzBuzz-Calculator-Mandzik --zip-file fileb://lambda.zip",
+          "rm lambda.zip"
+        ],
+        "cwd": "packages/fizzbuzz/src",
+        "parallel": false
+      }
+
     }
   }
 }
