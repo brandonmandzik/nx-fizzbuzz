@@ -34,12 +34,6 @@ jobs:
       - name: Running NX Test
         run: |
           npm install nx
-          ls -la
           npx nx test fizzbuzz
-      - name: fail NX Test
-        run: |
-          npm install nx
-          ls -la
-          nx test fizzbuzz
 
 
