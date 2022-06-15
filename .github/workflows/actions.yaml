@@ -49,6 +49,7 @@ jobs:
             aws-region: eu-central-1
         # zip-it-ship-it 
         - run: |
+            pwd
             ls -la
             # zip lambda lambda_function.py test_lambda_function.py README.md
             # aws lambda update-function-code --function-name FizzBuzz-Calculator-Mandzik --zip-file fileb://lambda.zip
