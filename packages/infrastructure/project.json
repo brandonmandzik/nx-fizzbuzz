@@ -1,0 +1,42 @@
+{
+  "root": "packages/infrastructure",
+  "sourceRoot": "packages/infrastructure",
+  "projectType": "application",
+  "targets": {
+    "diff":{
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cdk diff",
+        "cwd": "packages/infrastructure"
+      }
+    },
+    "synth":{
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cdk synth",
+        "cwd": "packages/infrastructure"
+      }
+    },
+    "bootstrap":{
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cdk bootstrap",
+        "cwd": "packages/infrastructure"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cdk test",
+        "cwd": "packages/infrastructure"
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": "cdk deploy",
+        "cwd": "packages/infrastructure"
+      }
+    }
+  }
+}
