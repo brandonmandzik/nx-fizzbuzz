@@ -136,9 +136,9 @@ Yes - Github as our repository provider allows us the use of github actions. The
 ### How do I authorizes the usage?
 1. Configure you AWS CLI to use the correct account and region
 2. Authorize your user and retrieve the identity token
-`aws cognito-idp initiate-auth --region eu-central-1 --auth-flow USER_PASSWORD_AUTH --client-id 5gpcrv73vekdlenfg3a49p7c8o --auth-parameters USERNAME=fizzbuzzTester,PASSWORD=12REST.testing34`
+<br>`aws cognito-idp initiate-auth --region eu-central-1 --auth-flow USER_PASSWORD_AUTH --client-id 5gpcrv73vekdlenfg3a49p7c8o --auth-parameters USERNAME=fizzbuzzTester,PASSWORD=12REST.testing34`
 3. Call the API with the related token and key.
-E.g.`curl -v -X POST 'https://u03oys9x3l.execute-api.eu-central-1.amazonaws.com/prod/fizzbuzz' -H 'x-api-key: K3YWaVWqS99FqZn3W9qPr1cXkdM2XHEK4syswsbj' -H 'Authorization: <IDENTITY TOKEN>' -H 'content-type: application/json'  -d '{ "number": 15 }'`
+<br>E.g.`curl -v -X POST 'https://u03oys9x3l.execute-api.eu-central-1.amazonaws.com/prod/fizzbuzz' -H 'x-api-key: K3YWaVWqS99FqZn3W9qPr1cXkdM2XHEK4syswsbj' -H 'Authorization: <IDENTITY TOKEN>' -H 'content-type: application/json'  -d '{ "number": 15 }'`
 
 # Appendix
 
