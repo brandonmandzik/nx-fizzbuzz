@@ -39,7 +39,7 @@ $ curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
 $ sudo installer -pkg AWSCLIV2.pkg -target /
 ```
 
-2. NX by nrwl
+2. Nx by nrwl
 ```
 $ npm install -g nx
 ```
@@ -51,16 +51,16 @@ npm install -g aws-cdk
 
 ## Project Structure
 <img width="153" alt="image" src="https://user-images.githubusercontent.com/35039517/178467958-f2efc336-9882-43e4-b1fa-ebbf3132533a.png">
-Due to the fact that Nx is a tool for managing projects and repositories, it makes it easier to handle mutiple projects in a single repository (Monorepo) as you can customize and wrap all project/application relevant commands into simpler global NX commands.
+Due to the fact that Nx is a tool for managing projects and repositories, it makes it easier to handle mutiple projects in a single repository (Monorepo) as you can customize and wrap all project/application relevant commands into simpler global Nx commands.
 
 <br>The most important folders here are: `.github, packages, and nx.json` at the root level for defining the repositories scope. The `packages` folder holds the individual applications and libraryies we want to manage. In this case we have the Lambda application (`packages/fizzbuzz`) and the AWS CDK application (`packages/infrastructure`) for synthesizing our CloudFormation templates. 
 
-<br>It's good to know that an application needs to hold a `project.json or package.json` (when living in an JS enviroments) at the directories root level in order to recognize it as an indiviual application. Further more the `.json` definition hold relevant information about how to wrap the app into the NX enviroment.
+<br>It's good to know that an application needs to hold a `project.json or package.json` (when living in an JS enviroments) at the directories root level in order to recognize it as an indiviual application. Further more the `.json` definition hold relevant information about how to wrap the app into the Nx enviroment.
 
-<br>NX allows you to create and handle any application you want inside. In case you need additional libraries or similar you can create the projects inside of `packages` and in parrallel the necessary `project.json`. You can use any desired language or framework. The language specific commands can then be wrapped into NX commands. Just make sure to have satisfied dependecies on this.
+<br>Nx allows you to create and handle any application you want inside. In case you need additional libraries or similar you can create the projects inside of `packages` and in parrallel the necessary `project.json`. You can use any desired language or framework. The language specific commands can then be wrapped into Nx commands. Just make sure to have satisfied dependecies on this.
 
 ### Example and Use-Case of project.json
-In this case we use the application `packages/fizzbuzz` which is our lambda function handler written in python. Python has a native testing solution with the pytest library. Usally you would test it by running the python specific commands in your terminal. Since NX is our global project manager we can wrap these into NX run commands.  
+In this case we use the application `packages/fizzbuzz` which is our lambda function handler written in python. Python has a native testing solution with the pytest library. Usally you would test it by running the python specific commands in your terminal. Since Nx is our global project manager we can wrap these into Nx run commands.  
 ```
 {
   "root": "packages/fizzbuzz",
@@ -77,7 +77,7 @@ In this case we use the application `packages/fizzbuzz` which is our lambda func
     ...
 }   
 ```
-This json document tells NX how to handled the application related commands. Targets in this case are the nx run-commands for the specific application. E.g. `test` is defined and tells it what to do underneath. See the following:
+This json document tells Nx how to handled the application related commands. Targets in this case are the Nx run-commands for the specific application. E.g. `test` is defined and tells it what to do underneath. See the following:
 ```
 // python native command
 $ python3 -m pytest -v 
@@ -85,7 +85,7 @@ $ python3 -m pytest -v
 $ nx run fizzbuzz:test
 ```
 
-You can specify custom targets you want, for any desired application or library. NX is here to globally handle all staging process for all applications living inside of the monorepo. It helps by having a common syntax for all apps. 
+You can specify custom targets you want, for any desired application or library. Nx is here to globally handle all staging process for all applications living inside of the monorepo. It helps by having a common syntax for all apps. 
 
 
 # Build
@@ -95,13 +95,13 @@ When it comes to the infrastructure we indeed need to build the CloudFormation t
 To do so run the following: `$ nx run infrastrucuture:bootstrap`
 
 # Deploy
-One of the Lambda deploying techniques is called zip-it-ship-it. Do so, you simply need to compress the src directory you want to deploy into a zip directory and upload it through the AWS CLI to the desired Lambda function. You can do so by running `$ nx run fizzbuzz:deploy` underneath NX doing the things that have been described before.
+One of the Lambda deploying techniques is called zip-it-ship-it. Do so, you simply need to compress the src directory you want to deploy into a zip directory and upload it through the AWS CLI to the desired Lambda function. You can do so by running `$ nx run fizzbuzz:deploy` underneath Nx doing the things that have been described before.
 
 For the infrastructure, when the bootstrapping process is completed you need to run `$ nx run infrastructure:deploy`
 
 # Test
 
-In order to test the handler function you can either do it manually by creating testing events inside of the AWS management console or by running pytest. The second option is wrapped into a NX run command: `$ nx run fizzbuzz:test`
+In order to test the handler function you can either do it manually by creating testing events inside of the AWS management console or by running pytest. The second option is wrapped into a Nx run command: `$ nx run fizzbuzz:test`
 
 ```
 > nx run fizzbuzz:test
@@ -122,7 +122,7 @@ test_lambda_function.py::test_validateInput_fizzbuzz PASSED              [100%]
 
  ———————————————————————————————————————————————————————————————————————————————————————————————————————
 
- >  NX   Successfully ran target test for project fizzbuzz (297ms) 
+ >  Nx   Successfully ran target test for project fizzbuzz (297ms) 
 ```
 
 # FAQ
