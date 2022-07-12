@@ -26,7 +26,7 @@ Technically the game is build on top of the following AWS technologies:
 - AWS CLI 2.5.4
 - Python 3.9
 - pytest
-- NX 14.4.0
+- Nx 14.4.0
 - CDK 2.28.0
 - VCS (Git & Github)
 
@@ -51,7 +51,7 @@ npm install -g aws-cdk
 
 ## Project Structure
 <img width="153" alt="image" src="https://user-images.githubusercontent.com/35039517/178467958-f2efc336-9882-43e4-b1fa-ebbf3132533a.png">
-Due to the fact that NX is a tool for managing projects and repositories, it makes it easier to handle mutiple projects in a single repository (Monorepo) as you can customize and wrap all project/application relevant commands into simpler global NX commands.
+Due to the fact that Nx is a tool for managing projects and repositories, it makes it easier to handle mutiple projects in a single repository (Monorepo) as you can customize and wrap all project/application relevant commands into simpler global NX commands.
 
 <br>The most important folders here are: `.github, packages, and nx.json` at the root level for defining the repositories scope. The `packages` folder holds the individual applications and libraryies we want to manage. In this case we have the Lambda application (`packages/fizzbuzz`) and the AWS CDK application (`packages/infrastructure`) for synthesizing our CloudFormation templates. 
 
@@ -130,3 +130,14 @@ test_lambda_function.py::test_validateInput_fizzbuzz PASSED              [100%]
 ### How to I create additionally applications?
 ### Are there any CI/CD pipelines?
 ### How do I authorizes the usage?
+
+# Appendix
+
+### CDK Docu
+[Click me](https://docs.aws.amazon.com/cdk/api/v2/)
+
+### Lambda Python Docu
+[Click me](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python.html)
+
+### Nx Documentation
+[Click me](https://nx.dev/getting-started/intro)
