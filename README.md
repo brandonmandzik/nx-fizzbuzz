@@ -128,8 +128,17 @@ test_lambda_function.py::test_validateInput_fizzbuzz PASSED              [100%]
 # FAQ
 
 ### How to I create additionally applications?
+Either to it manually by simple creating a new directory inside of packages with the corresponding project.json or use Nx plugins with generators. E.g the react plugins can create whole react applications with one command. See more on the Nx homepage.
+
 ### Are there any CI/CD pipelines?
+Yes - Github as our repository provider allows us the use of github actions. These are jobs arranged into pipelines that trigger automatic test, build and deploy process on code changes on the main branch. Overall Nx wrapps everything underneath. (see project.json of each app)
+
 ### How do I authorizes the usage?
+1. Configure you AWS CLI to use the correct account and region
+2. Authorize your user and retrieve the identity token
+`aws cognito-idp initiate-auth --region eu-central-1 --auth-flow USER_PASSWORD_AUTH --client-id 5gpcrv73vekdlenfg3a49p7c8o --auth-parameters USERNAME=fizzbuzzTester,PASSWORD=12REST.testing34`
+3. Call the API with the related token and key.
+E.g.`curl -v -X POST 'https://u03oys9x3l.execute-api.eu-central-1.amazonaws.com/prod/fizzbuzz' -H 'x-api-key: K3YWaVWqS99FqZn3W9qPr1cXkdM2XHEK4syswsbj' -H 'Authorization: <IDENTITY TOKEN>' -H 'content-type: application/json'  -d '{ "number": 15 }'`
 
 # Appendix
 
