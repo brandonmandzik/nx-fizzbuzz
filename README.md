@@ -129,4 +129,4 @@ test_lambda_function.py::test_validateInput_fizzbuzz PASSED              [100%]
 
 ### How to I create additionally applications?
 ### Are there any CI/CD pipelines?
-### How do authorizes the usage?
+### How do I authorizes the usage?
